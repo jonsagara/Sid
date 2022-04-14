@@ -39,7 +39,7 @@ Done.
 Process finished with exit code 0.
 ```
 
-# Buy why?
+# But why?
 
 Over the years, I have found myself writing this pattern over and over again:
 
