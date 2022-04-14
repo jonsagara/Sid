@@ -1,6 +1,6 @@
 # Sid: `Stopwatch` in `IDisposable`
 
-This is a simple class that contains a `System.Diagnostics.Stopwatch`. The constructor starts the `Stopwatch`, and the `Dispose` method stops it. By default, the elapsed time is written to the console, though you can customized that by passing an `Action<string, TimeSpan>` argument to the constructor.
+This is a simple class that contains a `System.Diagnostics.Stopwatch`. The constructor starts the `Stopwatch`, and the `Dispose` method stops it. By default, the elapsed time is written to the console, though you can customize that by passing an `Action<string, TimeSpan>` argument to the constructor.
 
 # Usage
 
