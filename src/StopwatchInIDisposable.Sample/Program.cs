@@ -11,4 +11,9 @@ using (var fakeDelay = new Sid("fake delay"))
     await Task.Delay(millisecondsDelay: 3_000);
 }
 
+using (var customOutput = new Sid("custom output", (tag, elapsed) => Console.WriteLine($"Custom output for '{tag}': {elapsed}")))
+{
+    await Task.Delay(millisecondsDelay: 500);
+}
+
 Console.WriteLine("Done.");
