@@ -6,14 +6,14 @@ namespace StopwatchInIDisposable;
 /// Stopwatch wrapped in IDisposable. Slightly simplifies the use of Stopwatch by not
 /// requiring you to explicitly write a try/finally block.
 /// </summary>
-public class Sid : IDisposable
+public readonly struct Sid : IDisposable
 {
     private static readonly Action<string, TimeSpan> _defaultOutput =
         (tag, elapsed) => Console.WriteLine($"'{tag}' took {elapsed}.");
-    
+
     private readonly string _tag;
     private readonly Action<string, TimeSpan> _output;
-    private readonly Stopwatch _stopwatch;
+    private readonly long _startingTimestamp;
 
     /// <summary>
     /// .ctor
@@ -27,12 +27,11 @@ public class Sid : IDisposable
 
         _tag = tag;
         _output = output ?? _defaultOutput;
-        _stopwatch = Stopwatch.StartNew();
+        _startingTimestamp = Stopwatch.GetTimestamp();
     }
-    
+
     public void Dispose()
     {
-        _stopwatch.Stop();
-        _output(_tag, _stopwatch.Elapsed);
+        _output(_tag, Stopwatch.GetElapsedTime(_startingTimestamp));
     }
 }

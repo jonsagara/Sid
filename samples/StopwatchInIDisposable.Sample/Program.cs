@@ -1,6 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-using StopwatchInIDisposable;
+﻿using StopwatchInIDisposable;
 
 Console.WriteLine("Starting test of Sid...");
 
